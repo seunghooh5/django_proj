@@ -1,0 +1,17 @@
+First, create a virtuanenv with `virtualenv env` and `pip install django`.
+Second, start your own project with `django-admin startproject <project name>`.
+This will make manage.py and other files/directory.
+
+The outher root directory is a container for your project.
+manage.py is the CLI utility that interacts with your Django project in a variety of way. You can check out detailed info on [manage.py on django-admin and manage.py](://docs.djangoproject.com/ko/3.1/ref/django-admin/).
+mysite/ directory contains actual Python packages for your proejct. You can import Python packages in this directory from anywhere in your project by using nomenclature like mysite.urls.
+
+mysite/__init__.py: An empty file that lets Python to notice that this whole directory is to be considered like a package.
+
+mysite/settings.py: Store environments and settings of the current Django project. You can find out how the environment works at Django settings (https://docs.djangoproject.com/ko/3.1/topics/settings/).
+
+mysite/urls.py: Stores the URL delarations of current Django project. It's like a "table of contents" for a Django-written site. You can read more about it at [URL dispatcher](https://docs.djangoproject.com/ko/3.1/topics/http/urls/).
+
+mysite/asgi.py: This is the entry-point for ASGI-compatible web servers to serve your project. See [How to deploy with ASGI](https://docs.djangoproject.com/ko/3.1/howto/deployment/asgi/) for more details. ASGI is short for Asynchronous Server Gateway Interface, a new functionality supported since Django 3.o. It enables us to make asynchronous web servers and applications. FWIW, and from my understanding, ASGI extends the capabilities of WSGI. WSGI applications are single, synchronous callable that takes a request as an input and returns a response, suitable to handle HTTP connections, but not long-polling HTTP and WebSocket. This is where ASGI kicks to complement.
+
+mysite/wsgi.py: This is the entry-point for WSGI compatible web servers to serve your current project. Read [How to deploy with WSGI](https://docs.djangoproject.com/ko/3.1/howto/deployment/wsgi/)for more info.
