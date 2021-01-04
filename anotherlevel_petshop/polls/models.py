@@ -11,3 +11,6 @@ class Candidate(models.Model): # we need inheritance from models.Model
     introduction = models.TextField() # 길이제한 없음
     area = models.CharField(max_length=15)
     party_number = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
